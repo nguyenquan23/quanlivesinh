@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head >
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div th:fragment="container-top">
+<div class="card-body"  >
+    <table id="datatablesSimple">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each=" inspect : ${listInspect} ">
+            <th th:text="${inspect.id}"></th>
+            <th th:text="${inspect.username}"></th>
+            <th th:text="${inspect.password}"></th>
+            <th th:text="${inspect.phone}"></th>
+            <th th:text="${inspect.address}"></th>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+</body>
+</html>
