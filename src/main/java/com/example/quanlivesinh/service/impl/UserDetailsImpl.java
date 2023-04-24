@@ -1,5 +1,5 @@
 
-package com.example.quanlivesinh.service;
+package com.example.quanlivesinh.service.impl;
 
 import com.example.quanlivesinh.persistence.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;

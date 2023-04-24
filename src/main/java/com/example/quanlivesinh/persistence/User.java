@@ -23,11 +23,11 @@ public class User {
     private Integer phone;
     @Column(name = "ADDRESS")
     private String address;
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinTable(name = "users_role",
             joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID",referencedColumnName = "ROLE_ID"))
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
     public  User(){}
 

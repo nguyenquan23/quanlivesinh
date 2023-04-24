@@ -1,6 +1,7 @@
 package com.example.quanlivesinh.persistence;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -8,7 +9,7 @@ import java.util.Set;
 public class Inspect {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "USER_ID")
+    @Column (name = "user_id")
     private Long id;
     @Column(name = "USER_NAME")
     private String username;
@@ -24,7 +25,7 @@ public class Inspect {
     @JoinTable(name = "users_role",
             joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID",referencedColumnName = "ROLE_ID"))
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
     public  Inspect(){}
 
@@ -94,7 +95,7 @@ public class Inspect {
         this.roles = roles;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Inspect{" +
                 "id=" + id +
@@ -105,5 +106,5 @@ public class Inspect {
                 ", address='" + address + '\'' +
                 ", roles=" + roles +
                 '}';
-    }
+    }*/
 }

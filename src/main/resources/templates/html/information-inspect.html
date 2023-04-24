@@ -8,28 +8,31 @@
 <body>
 
 <div th:fragment="container-top">
+    <div><a th:href="@{/add}"><i class="fa-solid fa-user-plus"></i></a></div>
 <div class="card-body"  >
     <table id="datatablesSimple">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>ID</th>
+            <th>UserName</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
         </tr>
         </thead>
 
         <tbody>
         <tr th:each=" inspect : ${listInspect} ">
-            <th th:text="${inspect.id}"></th>
-            <th th:text="${inspect.username}"></th>
-            <th th:text="${inspect.password}"></th>
-            <th th:text="${inspect.phone}"></th>
-            <th th:text="${inspect.address}"></th>
-
-
+            <td th:text="${inspect.id}"></td>
+            <td th:text="${inspect.username}"></td>
+            <td th:text="${inspect.gender == 'true'? 'nữ' : 'nam' }"></td>
+            <td th:text="${inspect.phone}"></td>
+            <td th:text="${inspect.address}"></td>
+            <td> <a th:href="${'/inspect/edit/' + inspect.id}"> edit</a></td>
+            <td> <a th:href="${'/inspect/delete/' + inspect.id}"> delete</a></td>
         </tr>
         </tbody>
     </table>

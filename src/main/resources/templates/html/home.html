@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="../../static/css/home.css" rel="stylesheet" />
     <link href="../../static/css/table.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xmd17f+R7C1rI4D4jcdNeM4mRvR8gFmS1X09nfQkGtPvF3q68WZNTF7mtj+XXZ1v15QudNzLlXhty/dlvyHTCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -59,7 +60,7 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" th:href="@{/informationInspect}">Quản lí thông tin thanh tra</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                            <a class="nav-link" href="layout-sidenav-light.html">Quản lí các của hàng</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -184,7 +185,15 @@
                         <div th:if="${not #lists.isEmpty(listInspect)}">
                       <div th:replace="html/information-inspect :: container-top " ></div>
                         </div>
+                        <div th:if="${inspect!= null}">
+                             <div th:replace="html/inspect-form :: container-form"></div>
+                        </div>
+                        <div th:if="${inspectNew!= null}">
+
+                            <div th:replace="html/add-inspect ::add-inspect-form"></div>
+                        </div>
                     </div>
+
                 </div>
 
                 </div>

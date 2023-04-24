@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link href="../../static/css/inspect_form.css" rel="stylesheet">
+</head>
+<body>
+<div th:fragment="container-form" >
+
+<form method="post" th:object="${inspect}" th:action="@{/inspect}"  class="form-inspect">
+  <table>
+    <caption>Thông tin nhân viên</caption>
+
+  <div class="form-group">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{password}"/>
+
+
+    <tr>
+    <td><label for="exampleInputEmail1">Username</label></td>
+    <td><input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  th:field="*{username}" /></td>
+    </tr>
+  </div>
+    <div class="form-group">
+    <tr>
+  <div class="form-check form-check-inline">
+
+    <td><input class="form-check-input" type="radio" th:field="*{gender}" th:value="true" th:checked="${inspect.gender == true }? 'checked' : null"   name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
+   <label class="form-check-label" for="inlineRadio1">Nam</label></td>
+  </div>
+  <div class="form-check form-check-inline">
+    <td><input class="form-check-input" type="radio" th:field="*{gender}" th:value="false" th:checked="${inspect.gender == false} ? 'checked' : null"  name="inlineRadioOptions" id="inlineRadio2" value="option2"/>
+    <label class="form-check-label" for="inlineRadio2">Nữ</label></td>
+  </div>
+    </tr>
+    </div>
+
+
+  <div class="form-group">
+    <tr>
+    <td><label for="exampleInputPassword1">Phone</label></td>
+    <td><input type="text" class="form-control" id="" th:field="*{phone}"/></td>
+</tr>
+  </div>
+
+
+  <div class="form-group">
+    <tr>
+    <td><label for="exampleInputPassword1">Address</label></td>
+    <td><input type="text" class="form-control" id="exampleInputPassword1" th:field="*{address}"/></td>
+    </tr>
+  </div>
+    <div class="form-group">
+<tr>
+  <td><button type="submit" class="btn btn-primary">Submit</button></td>
+  <td> <button type="reset" class="btn btn-primary">Reset</button></td>
+</tr>
+    </div>
+  </table>
+</form>
+</div>
+</body>
+</html>
