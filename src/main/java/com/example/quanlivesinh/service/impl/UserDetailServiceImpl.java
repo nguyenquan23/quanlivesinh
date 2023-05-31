@@ -24,7 +24,7 @@ HihiRepository hihiRepository;*/
         System.out.println(username);
 
         User user = userRepository.findByUsername(username);
-            //    .orElseThrow(()-> new UsernameNotFoundException("user not not found with name: " + username));
+
         System.out.println(user);
         return UserDetailsImpl.build(user);
     }

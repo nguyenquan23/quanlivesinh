@@ -16,6 +16,8 @@ public class Certification {
     private String name;
     @Column (name ="mota")
     private String describe;
+    @Column(name = "image")
+    private String image;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name ="chitiet_chungnhan",
                joinColumns = @JoinColumn(name ="machungnhan", referencedColumnName = "machungnhan"),
@@ -28,6 +30,14 @@ public class Certification {
         this.name = name;
         this.describe = describe;
         this.stores = stores;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Long getId() {
@@ -62,14 +72,13 @@ public class Certification {
         this.stores = stores;
     }
 
-  /*  @Override
+  @Override
     public String toString() {
         return "Certification{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", describe='" + describe + '\'' +
-                ", stores=" + stores +
+                ", describe='" + describe + '\''  +
                 '}';
-    }*/
+    }
 }
 

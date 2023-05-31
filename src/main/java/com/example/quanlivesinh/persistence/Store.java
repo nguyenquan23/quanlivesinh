@@ -23,6 +23,8 @@ public class Store {
     private boolean status;
     @Column(name = "thoigianhoatdong")
     private LocalDateTime operatingTime;
+    @Column(name ="image")
+    private String image;
     @ManyToMany(mappedBy = "stores", fetch = FetchType.EAGER)
     private Set<Certification> certifications = new HashSet<>();
     public Store(){}
@@ -53,6 +55,14 @@ public class Store {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setAddress(String address) {

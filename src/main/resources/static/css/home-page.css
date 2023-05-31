@@ -1,0 +1,8 @@
+.caption{
+    text-align: center;
+}
+.card.border-0 {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    height: 100%;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="container-top-certification">
+    <div><a th:href="@{/add/certification}"><i class="fa-solid fa-user-plus"></i></a></div>
+    <div class="card-body"  >
+        <table id="datatablesSimple">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Describe</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each=" certification : ${listCertification} ">
+                <td th:text="${certification.id}"></td>
+                <td th:text="${certification.name}"></td>
+                <td th:text="${certification.describe}"></td>
+
+                <td> <a th:href="${'/certification/edit/' + certification.id}"> edit</a></td>
+                <td> <a th:href="${'/certification/delete/' + certification.id}"> delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

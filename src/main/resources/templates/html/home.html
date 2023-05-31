@@ -60,7 +60,8 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" th:href="@{/informationInspect}">Quản lí thông tin thanh tra</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Quản lí các của hàng</a>
+                            <a class="nav-link" th:href="@{/informationStore}">Quản lí các của hàng</a>
+                            <a class="nav-link" th:href="@{/informationCertification}">Quản lí thông tin các chứng nhận</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -182,14 +183,22 @@
                         DataTable Example
                     </div>
                     <div class="card-body">
+                        <div th:if="${not #lists.isEmpty(listCertification)}">
+                      <div th:replace="html/information-certification :: container-top-certification" ></div>
+                        </div>
+                        <div th:if="${certification != null }">
+                            <div th:replace="html/certification-form :: container-top-certification" ></div>
+                        </div>
+                        <div th:if="${certificationNew != null }">
+                            <div th:replace="html/form-add-certification :: container-top-certification" ></div>
+                        </div>
                         <div th:if="${not #lists.isEmpty(listInspect)}">
-                      <div th:replace="html/information-inspect :: container-top " ></div>
+                            <div th:replace="html/information-inspect :: container-top" ></div>
                         </div>
                         <div th:if="${inspect!= null}">
                              <div th:replace="html/inspect-form :: container-form"></div>
                         </div>
                         <div th:if="${inspectNew!= null}">
-
                             <div th:replace="html/add-inspect ::add-inspect-form"></div>
                         </div>
                     </div>
@@ -210,6 +219,7 @@
                     </div>
                 </div>
             </div>
+
         </footer>
     </div>
 </div>
