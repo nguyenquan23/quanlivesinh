@@ -66,7 +66,7 @@
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                        Pages
+                        Lập kế hoạch thanh tra
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -183,6 +183,15 @@
                         DataTable Example
                     </div>
                     <div class="card-body">
+                        <div th:if="${not #lists.isEmpty(listStore)}">
+                            <div th:replace="html/information-store :: container-top-store" ></div>
+                        </div>
+                        <div th:if="${store != null }">
+                            <div th:replace="html/store-form :: container-form-store" ></div>
+                        </div>
+                        <div th:if="${storeNew != null }">
+                            <div th:replace="html/form-add-store :: container-form-store" ></div>
+                        </div>
                         <div th:if="${not #lists.isEmpty(listCertification)}">
                       <div th:replace="html/information-certification :: container-top-certification" ></div>
                         </div>

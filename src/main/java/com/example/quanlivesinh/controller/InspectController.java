@@ -34,7 +34,7 @@ public class InspectController {
     @RequestMapping(value = "/informationInspect")
     public String getInspect(Model model){
 
-        System.out.println(inspectService.listAllInspect());
+        System.out.println(inspectService.listAllInspect().size());
 
        model.addAttribute("listInspect", inspectService.listAllInspect());
 

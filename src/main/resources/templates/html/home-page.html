@@ -61,23 +61,25 @@
     </div>
 </div>
 </div>
-<div th:block th:unless="${not #lists.isEmpty(listCertification)}">
+<div th:block th:unless="${not #lists.isEmpty(listCertification) || not #lists.isEmpty(listStore) }">
     <div class="container">
         <div class="row justify-content-center  align-items-center mb-sm-5">
             <div class="col-sm-3">
                 <div class="card" style="width: 20rem;">
+                    <a th:href="@{getInformationStore}" class="text-decoration-none">
                     <img src="../../static/images/cuahang.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">CÁC CỬA HÀNG TRÊN THÀNH PHỐ ĐÀ NẴNG</p>
                     </div>
+                    </a>
                 </div>
             </div>
             <div class="col-sm-3 ">
                 <div class="card" style="width: 20rem;">
-                    <a th:href="@{getInformationCertification}">
-                        <img src="../../static/images/chungnhan.jpg" class="card-img-top" alt="...">
+                    <a th:href="@{getInformationCertification}" class="text-decoration-none">
+                        <img  src="../../static/images/chungnhan.jpg" class="card-img-top card-img" alt="...">
                         <div class="card-body">
-                            <p class="card-text">THÔNG TIN CÁC LOẠI CHỨNG NHÂNJ VỆ SINH AN TOÀN THỰC PHẨM</p>
+                            <p class="card-text">THÔNG TIN CÁC LOẠI CHỨNG NHẬN VỆ SINH AN TOÀN THỰC PHẨM</p>
                         </div>
                     </a>
                 </div>
@@ -112,8 +114,20 @@
 
     </div>
 </div>
+<div th:if="${not #lists.isEmpty(listStore)}">
+    <div th:replace="html/view-store-card :: container-card" >
 
-<!-- CARD -->
+
+    </div>
+</div>
+<footer class="text-center text-white mt-5" style="background-color: #21081a;">
+    <div class="container p-4"></div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+</footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

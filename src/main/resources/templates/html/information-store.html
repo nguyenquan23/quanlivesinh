@@ -6,14 +6,17 @@
 </head>
 <body>
 <div th:fragment="container-top-store">
-  <div><a th:href="@{/add/shop}"><i class="fa-solid fa-user-plus"></i></a></div>
+  <div><a th:href="@{/add/store}"><i class="fa-solid fa-user-plus"></i></a></div>
   <div class="card-body"  >
     <table id="datatablesSimple">
       <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Describe</th>
+        <th>OperatingTime</th>
+        <th>Operating status</th>
+        <th>Phone</th>
+        <th>Address</th>
         <th>Edit</th>
         <th>Delete</th>
 
@@ -21,13 +24,15 @@
       </thead>
 
       <tbody>
-      <tr th:each=" certification : ${listCertification} ">
-        <td th:text="${certification.id}"></td>
-        <td th:text="${certification.name}"></td>
-        <td th:text="${certification.describe}"></td>
-
-        <td> <a th:href="${'/certification/edit/' + certification.id}"> edit</a></td>
-        <td> <a th:href="${'/certification/delete/' + certification.id}"> delete</a></td>
+      <tr th:each=" store : ${listStore} ">
+        <td th:text="${store.id}"></td>
+        <td th:text="${store.name}"></td>
+        <td th:text="${store.operatingTime}"></td>
+        <td th:text="${store.status == 'true'? 'còn hoạt động' : 'ngừng hoạt động' }"></td>
+        <td th:text="${store.phone}"></td>
+        <td th:text="${store.address}"></td>
+        <td> <a th:href="${'/store/edit/' + store.id}"> edit</a></td>
+        <td> <a th:href="${'/store/delete/' + store.id}"> delete</a></td>
       </tr>
       </tbody>
     </table>

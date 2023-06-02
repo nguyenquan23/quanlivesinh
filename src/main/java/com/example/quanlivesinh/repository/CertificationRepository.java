@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface CertificationRepository extends JpaRepository<Certification,Long> {
     Certification getCertificationById(Long id);
     void deleteById(Long id);
+
     @Modifying
     @Query("UPDATE Certification c SET c.name = :name ,c.describe = :describe WHERE c.id = :id")
     void updateCertifition(@Param("id") Long id, @Param("name") String name, @Param("describe") String describe);

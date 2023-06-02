@@ -24,6 +24,7 @@ public class InspectServiceImpl implements InspectService {
 
           List<Role> l = new ArrayList<>(inspect.getRoles());
             System.out.println(l.size());
+            System.out.println(l.get(0).getName());
 
           return l.get(0).getName().equals(ERole.ROLE_INSPECT);
          }

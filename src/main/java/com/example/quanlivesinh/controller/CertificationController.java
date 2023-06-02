@@ -63,6 +63,7 @@ public class CertificationController {
     @RequestMapping(value = "/getInformationCertification")
     public String getAllCertification(Model model){
         model.addAttribute("listCertification",certificationService.getCertificationAll());
+
         return "html/home-page";
     }
 

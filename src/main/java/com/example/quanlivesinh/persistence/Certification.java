@@ -3,6 +3,7 @@ package com.example.quanlivesinh.persistence;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -72,13 +73,26 @@ public class Certification {
         this.stores = stores;
     }
 
-  @Override
+  /*@Override
     public String toString() {
         return "Certification{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", describe='" + describe + '\''  +
                 '}';
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Certification that = (Certification) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(describe, that.describe) && Objects.equals(image, that.image) && Objects.equals(stores, that.stores);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, describe, image, stores);
     }
 }
 

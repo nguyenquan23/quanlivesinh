@@ -4,6 +4,7 @@ package com.example.quanlivesinh.persistence;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -25,7 +26,7 @@ public class Store {
     private LocalDateTime operatingTime;
     @Column(name ="image")
     private String image;
-    @ManyToMany(mappedBy = "stores", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "stores", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<Certification> certifications = new HashSet<>();
     public Store(){}
     public Store(Long id, String name, String address, String phone, boolean status, LocalDateTime operatingTime) {
@@ -109,11 +110,21 @@ public class Store {
                 ", phone='" + phone + '\'' +
                 ", status=" + status +
                 ", operatingTime=" + operatingTime +
-                ", certifications=" + certifications +
+                ", certifications=" +
                 '}';
     }*/
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Store store = (Store) o;
+        return status == store.status && Objects.equals(id, store.id) && Objects.equals(name, store.name) && Objects.equals(address, store.address) && Objects.equals(phone, store.phone) && Objects.equals(operatingTime, store.operatingTime) && Objects.equals(image, store.image);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, phone, status, operatingTime, image);
+    }
 }
 

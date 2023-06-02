@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CertificationServiceImpl implements CertificationService {
     CertificationRepository certificationRepository;
@@ -23,7 +25,8 @@ public class CertificationServiceImpl implements CertificationService {
 
     @Override
     public Certification getOneCertification(Long id) {
-        return certificationRepository.getCertificationById(id);
+        Optional<Certification> certificationOptional = certificationRepository.findById(id);
+        return certificationOptional.orElse(null);
     }
 
     @Override

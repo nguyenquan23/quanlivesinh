@@ -26,6 +26,10 @@ public class Inspect {
             joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID",referencedColumnName = "ROLE_ID"))
     private Set<Role> roles = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="machicuc", referencedColumnName = "machicuc")
+    private Subdivision subdivision;
+
 
     public  Inspect(){}
 
@@ -95,6 +99,13 @@ public class Inspect {
         this.roles = roles;
     }
 
+    public Subdivision getSubdivision() {
+        return subdivision;
+    }
+
+    public void setSubdivision(Subdivision subdivision) {
+        this.subdivision = subdivision;
+    }
     /*@Override
     public String toString() {
         return "Inspect{" +
